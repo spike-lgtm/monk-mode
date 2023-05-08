@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.onara" "\0"
-            VALUE "FileDescription", "monk_mode" "\0"
+            VALUE "FileDescription", "minimal_launcher" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "monk_mode" "\0"
+            VALUE "InternalName", "minimal_launcher" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.onara. All rights reserved." "\0"
-            VALUE "OriginalFilename", "monk_mode.exe" "\0"
-            VALUE "ProductName", "monk_mode" "\0"
+            VALUE "OriginalFilename", "minimal_launcher.exe" "\0"
+            VALUE "ProductName", "minimal_launcher" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

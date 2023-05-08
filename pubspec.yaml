@@ -1,5 +1,5 @@
-name: monk_mode
-description: A minimal android luncher made with flutter
+name: minimal_launcher
+description: A minimal launcher for android
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -30,7 +30,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  device_apps: ^2.2.0
+  reorderables: ^0.6.0
+  slide_digital_clock: ^1.0.3
+  intl: ^0.18.0
+  sqflite: ^2.2.6
+  path_provider: ^2.0.14
+  google_fonts: ^4.0.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

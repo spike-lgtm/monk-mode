@@ -1,11 +1,11 @@
 {
-    "name": "monk_mode",
-    "short_name": "monk_mode",
+    "name": "minimal_launcher",
+    "short_name": "minimal_launcher",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A minimal android luncher made with flutter",
+    "description": "A minimal launcher for android",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
