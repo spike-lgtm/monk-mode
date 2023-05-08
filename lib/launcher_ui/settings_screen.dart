@@ -1,9 +1,9 @@
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minimal_launcher/main.dart';
-import 'package:minimal_launcher/services/app_services.dart';
-import 'package:minimal_launcher/widgets/app_item.dart';
+import 'package:monk_mode/main.dart';
+import 'package:monk_mode/services/app_services.dart';
+import 'package:monk_mode/widgets/app_item.dart';
 
 class SettingScreen extends StatefulWidget {
   final AppServices appServices;

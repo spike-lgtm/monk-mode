@@ -1,6 +1,6 @@
-# minimal_launcher
+# monk_mode
 
-A minimal launcher for android
+A new Flutter project.
 
 ## Getting Started
 

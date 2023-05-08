@@ -1,7 +1,7 @@
 import 'package:device_apps/device_apps.dart';
-import 'package:minimal_launcher/main.dart';
-import 'package:minimal_launcher/models/app.dart';
-import 'package:minimal_launcher/services/db_service.dart';
+import 'package:monk_mode/main.dart';
+import 'package:monk_mode/models/app.dart';
+import 'package:monk_mode/services/db_service.dart';
 
 class AppServices {
   Future<List<Application>> getDeviceApps() async {

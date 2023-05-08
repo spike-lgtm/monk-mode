@@ -1,8 +1,8 @@
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_launcher/launcher_ui/apps_screen.dart';
-import 'package:minimal_launcher/launcher_ui/home_screen.dart';
-import 'package:minimal_launcher/services/app_services.dart';
+import 'package:monk_mode/launcher_ui/apps_screen.dart';
+import 'package:monk_mode/launcher_ui/home_screen.dart';
+import 'package:monk_mode/services/app_services.dart';
 
 void main() {
   runApp(const MyApp());
