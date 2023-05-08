@@ -6,7 +6,8 @@ class AppItem extends StatelessWidget {
   final Application application;
   final bool? isFav;
   final bool focus;
-  AppItem({Key? key, required this.application, this.isFav, this.focus = false})
+  final Function()? onAppPrefTap;
+  AppItem({Key? key, required this.application, this.isFav, this.focus = false, this.onAppPrefTap})
       : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
@@ -152,7 +153,7 @@ class AppItem extends StatelessWidget {
           ]),
           if (isFav != null)
             GestureDetector(
-              onTap: () {},
+              onTap: onAppPrefTap,
               child: AnimatedContainer(
                   height: 35,
                   width: 120,

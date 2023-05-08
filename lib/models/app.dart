@@ -13,7 +13,6 @@ class App {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'name': name,
       'package_name': packageName,
     };

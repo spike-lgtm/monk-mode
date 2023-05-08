@@ -82,7 +82,8 @@ class _SettingScreenState extends State<SettingScreen> {
             const Divider(
               color: Colors.white24,
             ),
-            _buildAppListWidget(widget.launcherAppContext.favApps, widget.launcherAppContext.favApps.isEmpty ? 50 : 150, true),
+            _buildAppListWidget(widget.launcherAppContext.favApps,
+                widget.launcherAppContext.favApps.isEmpty ? 50 : 150, true),
             const SizedBox(
               height: 25,
             ),
@@ -98,14 +99,16 @@ class _SettingScreenState extends State<SettingScreen> {
                     widget.appServices.getNonFavApps(
                         widget.launcherAppContext.allApps,
                         widget.launcherAppContext.favApps),
-                    widget.launcherAppContext.favApps.isEmpty ? 450 : 350, false)),
+                    widget.launcherAppContext.favApps.isEmpty ? 450 : 350,
+                    false)),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildAppListWidget(List<Application> apps, double height, bool isFav) {
+  Widget _buildAppListWidget(
+      List<Application> apps, double height, bool isFav) {
     return SingleChildScrollView(
       child: SizedBox(
         height: height,
@@ -124,6 +127,34 @@ class _SettingScreenState extends State<SettingScreen> {
                       enabled: false,
                       index: apps.indexOf(app),
                       child: AppItem(
+                        onAppPrefTap: () async {
+                          bool processCompleted = false;
+                          if (isFav) {
+                            processCompleted =
+                                await widget.appServices.removeAppFromFav(app);
+                            if (processCompleted) {
+                              setState(() {
+                                widget.launcherAppContext.favApps.remove(app);
+                              });
+                            }
+                          } else {
+                            processCompleted =
+                                await widget.appServices.addFavApps(app);
+                            if (processCompleted) {
+                              setState(() {
+                                widget.launcherAppContext.favApps.add(app);
+                              });
+                            }
+                          }
+
+                          if (!processCompleted) {
+                            const snackBar = SnackBar(
+                                content: Text(
+                                    'Error: Could not delete Favourite App'));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                        },
                         isFav: isFav,
                         application: app,
                       ));

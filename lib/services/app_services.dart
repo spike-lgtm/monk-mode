@@ -29,8 +29,8 @@ class AppServices {
         .toList()
         .map((e) => e.getApplication()));
     return LauncherAppContext(
-        homeText: appData[0]['header'],
-        focus: appData[0]['focus'] == 1,
+        homeText: appData.last['header'],
+        focus: appData.last['focus'] == 1,
         favApps: favApps.map((e) => e!).toList(),
         allApps: allApps);
   }
@@ -56,5 +56,25 @@ class AppServices {
       return focus;
     }
     return !focus;
+  }
+
+  Future<bool> addFavApps(Application application) async {
+    App app = App(
+        id: 0, name: application.appName, packageName: application.packageName);
+    final favAppDBService = DbService(dbName: DBHelper.favApps);
+    int result = await favAppDBService.insert(app.toJson());
+    if (result > 0) {
+      return true;
+    }
+    return false;
+  }
+
+  Future<bool> removeAppFromFav(Application application) async {
+    final favAppDBService = DbService(dbName: DBHelper.favApps);
+    int result = await favAppDBService.deleteViaCustomRow("package_name", application.packageName);
+    if (result > 0) {
+      return true;
+    }
+    return false;
   }
 }

@@ -56,14 +56,12 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 5),
           Text(
             DateFormat('EEEE | MMMM dd, y').format(DateTime.now()),
-            style: GoogleFonts.alegreya(
-                fontSize: 16, color: Colors.white70),
+            style: GoogleFonts.alegreya(fontSize: 16, color: Colors.white70),
           ),
           SizedBox(height: 5),
           Text(
               "${DateTime(DateTime.now().year, 12, 31).difference(DateTime.now()).inDays} days left this year!",
-              style: GoogleFonts.alegreya(
-                  fontSize: 14, color: Colors.white70)),
+              style: GoogleFonts.alegreya(fontSize: 14, color: Colors.white70)),
           SizedBox(height: 5),
           Divider(
             color: Colors.white70,
@@ -116,15 +114,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
-          Divider(
-            color: Colors.white70,
-            thickness: 0.1,
-          ),
+          Divider(color: Colors.white70, thickness: 0.1),
+          SizedBox(height: 80),
           Expanded(
             child: ReorderableListView(
               buildDefaultDragHandles: true,
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              children: widget.launcherAppContext.allApps.map((app) {
+              children: widget.launcherAppContext.favApps.map((app) {
                 return ReorderableDragStartListener(
                     key: Key(app.packageName),
                     enabled: false,
@@ -140,8 +136,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     newIndex -= 1;
                   }
                   final Application item =
-                  widget.launcherAppContext.allApps.removeAt(oldIndex);
-                  widget.launcherAppContext.allApps.insert(newIndex, item);
+                      widget.launcherAppContext.favApps.removeAt(oldIndex);
+                  widget.launcherAppContext.favApps.insert(newIndex, item);
                 });
               },
             ),

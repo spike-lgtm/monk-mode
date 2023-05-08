@@ -46,6 +46,9 @@ class DBHelper {
         name TEXT NOT NULL,
         package_name TEXT NOT NULL
     );  ''');
+    await db.execute('''
+    INSERT INTO $favApps(id, name, package_name) VALUES (1, "Phone", "com.google.android.dialer");
+  ''');
   }
 }
 
@@ -73,5 +76,11 @@ class DbService {
   Future<int> delete(int id) async {
     Database db = await DBHelper.instance.database;
     return await db.delete(dbName, where: 'id = ?', whereArgs: [id]);
+  }
+
+  Future<int> deleteViaCustomRow(String rowName, dynamic argument) async {
+    Database db = await DBHelper.instance.database;
+    return await db
+        .delete(dbName, where: '$rowName = ?', whereArgs: [argument]);
   }
 }
