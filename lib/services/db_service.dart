@@ -8,7 +8,6 @@ class DBHelper {
   static const int _databaseVersion = 1;
 
   static const String favApps = "fav_apps";
-  static const String todoList = "todo";
   static const String appContext = "app_context";
 
   DBHelper._constructor();
@@ -38,7 +37,7 @@ class DBHelper {
     );    
   ''');
     await db.execute('''
-    INSERT INTO $appContext(id, header, focus) VALUES (0, "Think in decades, act in days.", 0);
+    INSERT INTO $appContext(id, header, focus) VALUES (0, "Think in decades, act in days...", 0);
   ''');
 
     await db.execute('''
@@ -46,16 +45,6 @@ class DBHelper {
         id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
         package_name TEXT NOT NULL
-    );  ''');
-
-    await db.execute('''
-    CREATE TABLE $todoList (
-        id INTEGER PRIMARY KEY,
-        parent_id INTEGER NOT NULL,
-        title TEXT NOT NULL,
-        description TEXT,
-        finished INTEGER NOT NULL,
-        added_at TEXT NOT NULL
     );  ''');
   }
 }

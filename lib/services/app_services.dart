@@ -1,8 +1,6 @@
 import 'package:device_apps/device_apps.dart';
-import 'package:minimal_launcher/launcher_ui/settings_screen.dart';
 import 'package:minimal_launcher/main.dart';
 import 'package:minimal_launcher/models/app.dart';
-import 'package:minimal_launcher/models/todo.dart';
 import 'package:minimal_launcher/services/db_service.dart';
 
 class AppServices {
@@ -40,12 +38,6 @@ class AppServices {
   List<Application> getNonFavApps(
       List<Application> allApps, List<Application> favApps) {
     return allApps.where((element) => !favApps.contains(element)).toList();
-  }
-
-  Future<List<TodoItem>> getAllTodoItems() async {
-    final dbService = DbService(dbName: DBHelper.todoList);
-    List<Map<String, dynamic>> todoItemsJson = await dbService.queryAllRows();
-    return todoItemsJson.map((e) => TodoItem.fromJson(e)).toList();
   }
 
   Future<String> updateHomeHeader(String header) async {
