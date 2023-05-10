@@ -39,6 +39,7 @@ class _AppScreenState extends State<AppScreen> {
                         enabled: false,
                         index: widget.launcherAppContext.allApps.indexOf(app),
                         child: AppItem(
+                          fontSize: widget.launcherAppContext.normalAppSize,
                           focus: widget.launcherAppContext.focus,
                           application: app,
                         ));

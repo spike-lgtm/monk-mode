@@ -33,11 +33,14 @@ class DBHelper {
     CREATE TABLE $appContext (
       id INTEGER PRIMARY KEY,
       header TEXT NOT NULL,
-      focus INTEGER NOT NULL
+      focus INTEGER NOT NULL,
+      fav_app_size INTEGER NOT NULL,
+      normal_app_size INTEGER NOT NULL
     );    
   ''');
     await db.execute('''
-    INSERT INTO $appContext(id, header, focus) VALUES (0, "Think in decades, act in days...", 0);
+    INSERT INTO $appContext(id, header, focus, fav_app_size, normal_app_size) 
+    VALUES (0, "Think in decades, act in days...", 0, 24, 28);
   ''');
 
     await db.execute('''
@@ -46,9 +49,6 @@ class DBHelper {
         name TEXT NOT NULL,
         package_name TEXT NOT NULL
     );  ''');
-    await db.execute('''
-    INSERT INTO $favApps(id, name, package_name) VALUES (1, "Phone", "com.google.android.dialer");
-  ''');
   }
 }
 

@@ -31,6 +31,8 @@ class AppServices {
     return LauncherAppContext(
         homeText: appData.last['header'],
         focus: appData.last['focus'] == 1,
+        favAppSize: double.parse(appData.last['fav_app_size'].toString()),
+        normalAppSize: double.parse(appData.last['normal_app_size'].toString()),
         favApps: favApps.map((e) => e!).toList(),
         allApps: allApps);
   }
@@ -71,10 +73,21 @@ class AppServices {
 
   Future<bool> removeAppFromFav(Application application) async {
     final favAppDBService = DbService(dbName: DBHelper.favApps);
-    int result = await favAppDBService.deleteViaCustomRow("package_name", application.packageName);
+    int result = await favAppDBService.deleteViaCustomRow(
+        "package_name", application.packageName);
     if (result > 0) {
       return true;
     }
     return false;
+  }
+
+  Future<bool> updateFontSize(double favAppSize, double normalAppSize) async {
+    final homeDbService = DbService(dbName: DBHelper.appContext);
+    int update = await homeDbService.update({
+      'id': 0,
+      'normal_app_size': normalAppSize,
+      'fav_app_size': favAppSize
+    });
+    return update > 0;
   }
 }

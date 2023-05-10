@@ -6,8 +6,9 @@ class AppItem extends StatelessWidget {
   final Application application;
   final bool? isFav;
   final bool focus;
+  final double fontSize;
   final Function()? onAppPrefTap;
-  AppItem({Key? key, required this.application, this.isFav, this.focus = false, this.onAppPrefTap})
+  AppItem({Key? key, required this.application, this.isFav, this.focus = false, this.fontSize = 28, this.onAppPrefTap})
       : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
@@ -147,7 +148,7 @@ class AppItem extends StatelessWidget {
               child: Text(application.appName,
                   style: GoogleFonts.alegreya(
                     color: Colors.white70,
-                    fontSize: 28,
+                    fontSize: fontSize,
                   )),
             ),
           ]),

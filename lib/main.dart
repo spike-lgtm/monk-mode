@@ -42,12 +42,16 @@ class LauncherAppContext {
   bool focus;
   List<Application> favApps;
   List<Application> allApps;
+  double favAppSize;
+  double normalAppSize;
 
   LauncherAppContext(
       {this.homeText = "Write Something...",
       required this.focus,
       required this.favApps,
-      required this.allApps});
+      required this.allApps,
+      required this.favAppSize,
+      required this.normalAppSize});
 }
 
 class _LauncherPagesState extends State<LauncherPages> {

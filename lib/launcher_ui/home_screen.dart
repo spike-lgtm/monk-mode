@@ -86,12 +86,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: InputDecoration(
                           hintText: "Write Something...",
                           hintStyle: GoogleFonts.alegreya(
-                              fontSize: 26, color: Colors.white70),
+                              fontSize: 20, color: Colors.white70),
                           border: InputBorder.none,
                         ),
                         maxLines: 5,
                         style: GoogleFonts.alegreya(
-                            fontSize: 26, color: Colors.white70))),
+                            fontSize: 20, color: Colors.white70))),
               ),
             ],
           ),
@@ -126,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     enabled: false,
                     index: widget.launcherAppContext.allApps.indexOf(app),
                     child: AppItem(
+                      fontSize: widget.launcherAppContext.favAppSize,
                       focus: widget.launcherAppContext.focus,
                       application: app,
                     ));
